@@ -1,0 +1,20 @@
+int binExpoIter(int a, long long b, int M)
+{
+	int ans=1;
+	while(b>0)  //while i'th bit of b exists
+	{
+		if(b&1) {ans=ans*a;}   //b&1= setbit on i'th pos
+		//ans=(ans*1LL*a)%M;  //calculation in ll but stores in int
+		a=a*a;
+		//a=(a*1LL*a)%M;
+		b= b>>1;
+	}
+	return ans;
+}
+
+
+int main()
+{
+	//50^64^32
+	cout<<binExpoIter(50,binExpoIter(64,32,M-1),M);  //M prime
+}

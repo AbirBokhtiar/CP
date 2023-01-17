@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+int check[100];
+
+void dfs(vector<string> v,int node)
+{
+    check[node]=true;
+    for(int i=0;i<v[node].size();i++)
+    {
+        int child= v[node][i];
+        if(check[child]==false)
+        {
+            dfs(child);
+        }
+    }
+}
+
+int main()
+{
+    int t;
+    cin>>t;
+
+    while(t--)
+    {
+        string s;
+        while(cin>>s)
+        {
+            vector<string> vec[10^5];
+            int x= s[0]-65;
+            int y=s[1]-65;
+            vec[x].push_back(y);
+            vec[y].push_back(x);
+
+            for(int i=;i<n;i++)
+            {
+                if(check[i]==false)
+                {
+                    dfs(i);
+                    cnt++;
+                }
+            }
+            cout<<cnt<<endl;
+        }
+
+
+    }
+}
